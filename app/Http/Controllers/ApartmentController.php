@@ -22,7 +22,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('apartments.create');
+        return view('apartments.create', ['apartment' => new Apartment]);
     }
 
     /**

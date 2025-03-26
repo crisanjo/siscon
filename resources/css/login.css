@@ -1,0 +1,103 @@
+/*Adaptado de: https://bootsnipp.com/snippets/7nk08*/
+html,
+body{
+    min-height: 100%;
+}
+.main-head{
+    height: 150px;
+    background: #FFF;
+
+}
+.sidenav {
+    background-color: #0C3355;
+    overflow-x: hidden;
+    padding-top: 20px
+}
+.main {
+    padding: 0px 10px
+}
+.topo{
+    margin-top:29px;
+}
+.login-main-text{
+    margin-top: 13%;
+    padding: 3.5rem 3rem;
+    color: #fff;
+}
+.login-main-text h2{
+    font-weight: 300;
+}
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+#barra-brasil{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: #23282D !important
+}
+.btn-radio {
+    padding: 15px;
+    color: #666;
+    border-radius: 8px;
+    border: 1px solid #666;
+    width: 50%;
+    height: 100px;
+    margin-right: 30px;
+}
+.btn-radio:last-child{
+    margin-right:0
+}
+[type=radio] {
+    margin:0;padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+.btn-radio--active {
+    color: #227DC7;
+    border: 1px solid #227DC7;
+}
+.titulo{
+    font-size: 1.618em;
+    font-weight: bold;
+}
+.required:after {
+    content:" *";
+    color: red;
+}
+.gradiente{
+    background: rgb(12,51,85);
+    background: linear-gradient(0deg, rgba(12,51,85,1) 0%, rgba(139,158,175,1) 31%, rgba(231,236,240,1) 70%, rgba(248,250,252,1) 100%);
+}
+
+@media  screen and (min-width: 768px){
+    .main{
+        margin-left: 20%;
+    }
+    .sidenav{
+        height: 100%;
+        width: 19%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        box-shadow:inset 0px 0px 30px 10px rgba(0,0,0,.3)
+    }
+    .login-form{
+        margin-top: 6%;
+    }
+    .register-form{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .login-form{
+        margin-top: 12%;
+    }
+    .login-main-text{
+        padding:0 2em 3.5em
+    }
+}

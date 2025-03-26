@@ -1,12 +1,12 @@
 @extends('layouts.template_admin')
-@section('title', 'Gerenciar Apartamentos')
+@section('title', 'Gerenciar Departamentos')
 @section('content')
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success float-right btn-sm" href="{{ route('apartments.create') }}" name="Novo"> Novo</button>
+            <button class="btn btn-success float-right btn-sm link_jspanel_form" data-url="{{ route('departments.create') }}" name="Nova Nacionalidade"> Novo Departamento</button>
         </div>
     </div>
   </div>
@@ -24,15 +24,13 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($apartments as $apartment)
+            @foreach ($departments as $department)
               <tr>
-                <td>{{ $apartment->id }}</td>
-                <td>{{ $apartment->description }}</td>
-                <td>{{ $apartment->user_id }}</td>
+                <td>{{ $department->id }}</td>
+                <td>{{ $department->name }}</td>
                 <td>
-                  <a class="btn btn-warning btn-sm mr-1" href="{{ route('apartments.edit',$apartment->id) }}" name="Editar">Editar</button>
-                  <form action="{{ route('apartments.destroy', $apartment->id) }}" method="POST">
-                    
+                  <form action="{{ route('departments.destroy', $department->id) }}" method="POST">
+                    <button class="btn btn-warning btn-sm link_jspanel_form mr-1" data-url="{{ route('departments.edit',$department->id) }}" name="Editar Departamento">Editar</button>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('Caso esta ação seja confirmada, não poderá ser desfeita. Deseja continuar?') }}')">Deletar</button>
