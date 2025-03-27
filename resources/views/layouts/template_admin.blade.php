@@ -64,7 +64,7 @@
                         <a class="collapse-item" href="">Nacionalidade</a>
                         <a class="collapse-item" href="">Campus</a>
                         <a class="collapse-item" href="">Curso</a>
-                        <a class="collapse-item" href="">Modalidade de Curso</a>
+                        <a class="collapse-item" href="{{ route('profiles.index')}}">Perfil</a>
                         <a class="collapse-item" href="{{ route('apartments.index')}}">Apartametos</a>
                     </div>
                 </div>
