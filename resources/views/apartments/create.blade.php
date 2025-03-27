@@ -1,4 +1,4 @@
-@extends('layouts.template_admin_form')
+@extends('layouts.template_admin')
 @section('content')
 
 <div class="container">
@@ -9,7 +9,7 @@
             Apartamento
         </div>
         <div class="card-body">
-            <form class="department form" method="post" action="{{ route('apartments.store') }}" id="form">
+            <form class="department" method="post" action="{{ route('apartments.store') }}" >
                 @csrf
                 @include('apartments._form')
             </form>

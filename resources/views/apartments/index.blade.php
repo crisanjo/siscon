@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success float-right btn-sm" href="{{ route('apartments.create') }}" name="Novo"> Novo</button>
+            <a class="btn btn-success float-right btn-sm" href="{{ route('apartments.create') }}" name="Novo"> Novo</a>
         </div>
     </div>
   </div>
@@ -20,6 +20,7 @@
             <tr>
               <th width="50px">Id</th>
               <th>Nome</th>
+              <th>User ID</th>
               <th width="150px">Ações</th>
             </tr>
           </thead>
@@ -30,7 +31,7 @@
                 <td>{{ $apartment->description }}</td>
                 <td>{{ $apartment->user_id }}</td>
                 <td>
-                  <a class="btn btn-warning btn-sm mr-1" href="{{ route('apartments.edit',$apartment->id) }}" name="Editar">Editar</button>
+                  <a class="btn btn-warning btn-sm mr-1" href="{{ route('apartments.edit',$apartment->id) }}" name="Editar">Editar</a>
                   <form action="{{ route('apartments.destroy', $apartment->id) }}" method="POST">
                     
                     @csrf

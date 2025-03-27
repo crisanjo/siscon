@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SAI-Sistema de Avaliações Institucionais</title>
+    <title>Siscon</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css')}}" rel="stylesheet" />
-    <script src="{{ asset('js/app.js')}}"></script> 
+
 
     <!-- Custom styles for this page -->
     <link href="{{ asset('datatables/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
