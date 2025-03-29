@@ -13,35 +13,35 @@ cp .env.example .env<br/>
 docker-compose up --build -d<br/>
 
 <strong>Primeira VEZ</strong><br/>
-docker exec siscon-docker.app composer install
-docker exec siscon-docker.app php artisan migrate:fresh
-sudo chmod 777 storage/ -R
+docker exec siscon-docker.app composer install <br/>
+docker exec siscon-docker.app php artisan migrate:fresh <br/>
+sudo chmod 777 storage/ -R <br/>
 <br/>
 **Nesse ponto o sistema já vai está funcionando**
-
+<br/>
 <h4>Acessando o container</h4>
 docker exec -it siscon-docker.app /bin/bash<br/>
 <br/>
 <strong>Todos os comando abaixo devem ser executados dentro do container da aplicação</strong><br/>
 <br/>
 <h6>Gerando a chave do sistema</h6>
-php artisan key:generate<br/>
+docker exec siscon-docker.app php artisan key:generate<br/>
 <h6>Execultar as migrações</h6>
-php artisan migrate <br/>
+docker exec siscon-docker.app php artisan migrate <br/>
 
 <h6>Carregar os dados no banco</h6>
-php artisan db:seed<br/>
+docker exec siscon-docker.app php artisan db:seed<br/>
 
 <h6>Execultar os testes</h6>
-php artisan test<br/>
+docker exec siscon-docker.app php artisan test<br/>
 
 <h6>Acessando</h6><br/>
 http://localhost:8989/<br/>
-Login: 84212138069
-Senha: 12345678
+Login: 84212138069 <br/>
+Senha: 12345678 <br/>
 
 <h6>Para criar um Model + Controler com metoodos padrões + Migration</h6>
- php artisan make:model <Nome do Model> -mcr <br/>
+docker exec siscon-docker.app php artisan make:model <Nome do Model> -mcr <br/>
 
 -m, --migration Cria um novo arquivo de migração para o modelo<br/>
 -c, --controller Cria um novo controlador para o modelo<br/>
@@ -50,14 +50,14 @@ Senha: 12345678
 -s, --seed Cria um novo arquivo semeador para o modelo<br/>
 
 <h6>Para criar um Fabricas</h6>
-php artisan make:factory UserFactory<br/>
+docker exec siscon-docker.app php artisan make:factory UserFactory<br/>
 
 <h6>Para criar um Seed</h6>
-php artisan make:seeder UserSeeder<br/>
-php artisan db:seed --class=UserSeeder<br/>
+docker exec siscon-docker.app php artisan make:seeder UserSeeder<br/>
+docker exec siscon-docker.app php artisan db:seed --class=UserSeeder<br/>
 
 <h6>Para criar um Teste</h6>
-php artisan make:test UserTest<br/>
+docker exec siscon-docker.app php artisan make:test UserTest<br/>
 
 ### Configurar upload de arquivos
 
