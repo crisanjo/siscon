@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     zip \
     unzip \
+    git \
     openssl \
     libzip-dev \
     nodejs \
@@ -35,18 +36,22 @@ RUN apt-get update && apt-get install -y \
 RUN pecl install redis && docker-php-ext-enable redis
 
 # install composer
-#COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-# Install Composer
-#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN composer self-update
 
 WORKDIR /var/www/html
 
 #copia os arquivos do diretorio atual para o diretorio /var/www/html do container
 COPY . /var/www/html
 
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 /var/www/html/storage \
-    && chmod -R 775 /var/www/html/bootstrap/cache
+# Install Composer
+RUN composer install \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist
+
+RUN composer dump-autoload
 
 # Node.js, NPM, Yarn
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
@@ -54,22 +59,16 @@ RUN apt-get install -y nodejs
 RUN npm install npm@latest -g
 RUN npm install yarn -g
 
-# Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-RUN php composer-setup.php
-RUN php -r "unlink('composer-setup.php');"
-RUN mv composer.phar /usr/local/bin/composer
+RUN php artisan key:generate
+#RUN php artisan migrate:fresh
 
 # install php and node.js dependencies
 #RUN composer install --no-dev --prefer-dist \
 #    && npm install \
 #    && npm run build
-
-RUN chown -R www-data:www-data /var/www/html/vendor \
-    && chmod -R 775 /var/www/html/vendor
-
-RUN a2enmod rewrite && service apache2 restart \
-    && chmod 777 /var/www/html/apache/log -R
+RUN chmod 777 -R /var/www/html/storage/ && \
+  chown -Rf www-data:www-data /var/www/ && \
+  a2enmod rewrite && service apache2 restart
 
 #expõe uma porta
 EXPOSE 80
