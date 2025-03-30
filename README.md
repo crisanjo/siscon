@@ -8,7 +8,7 @@ git clone https://github.com/crisanjo/siscon.git
 git checkout dev<br/>
 
 <h4>ENV - copia</h4>
-cp .env.example .env<br/>
+cp .env.exemple .env<br/>
 <strong>Subindo os containes</strong><br/>
 docker-compose up --build -d<br/>
 
