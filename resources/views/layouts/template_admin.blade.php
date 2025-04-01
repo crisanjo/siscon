@@ -58,14 +58,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Usuário</a>
-                        <a class="collapse-item" href="">Tipos de Vínculo</a>
-                        <a class="collapse-item" href="">Escolaridade</a>
-                        <a class="collapse-item" href="">Nacionalidade</a>
-                        <a class="collapse-item" href="">Campus</a>
-                        <a class="collapse-item" href="">Curso</a>
                         <a class="collapse-item" href="{{ route('profiles.index')}}">Perfil</a>
                         <a class="collapse-item" href="{{ route('apartments.index')}}">Apartametos</a>
+                        <a class="collapse-item" href="{{ route('services.index')}}">Serviços</a>  
                     </div>
                 </div>
             </li>
