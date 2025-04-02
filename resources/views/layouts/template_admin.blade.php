@@ -62,6 +62,7 @@
                         <a class="collapse-item" href="{{ route('apartments.index')}}">Apartametos</a>
                         <a class="collapse-item" href="{{ route('services.index')}}">Serviços</a> 
                         <a class="collapse-item" href="{{ route('areas.index')}}">Areas</a>
+                        <a class="collapse-item" href="{{ route('statuses.index')}}">Status</a>
                     </div>
                 </div>
             </li>
