@@ -60,7 +60,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('profiles.index')}}">Perfil</a>
                         <a class="collapse-item" href="{{ route('apartments.index')}}">Apartametos</a>
-                        <a class="collapse-item" href="{{ route('services.index')}}">Serviços</a>  
+                        <a class="collapse-item" href="{{ route('services.index')}}">Serviços</a> 
+                        <a class="collapse-item" href="{{ route('areas.index')}}">Areas</a>
                     </div>
                 </div>
             </li>
@@ -131,13 +132,13 @@
                 </div>
                 <div id="creditos" class="seis-colunas">
                     Desenvolvido por
-                    <abbr title="Seção de Portais e Aplicações Web">SPA</abbr>
+                    <abbr title="Seção de Portais e Aplicações Web">Eduardo</abbr>
                     /
-                    <abbr title="Divisão de Sistemas da Informação">DSI</abbr>
+                    <abbr title="Divisão de Sistemas da Informação">Helida</abbr>
                     /
-                    <a href="http://dti.unilab.edu.br/DTI" target="_blank"><abbr title="Diretoria de Tecnologia da Informação">DTI</abbr></a>
+                    <a href="http://dti.unilab.edu.br/DTI" target="_blank"><abbr title="Diretoria de Tecnologia da Informação">Cristiano</abbr></a>
                     /
-                    <a href="http://www.unilab.edu.br/" target="_blank"><abbr title="Universidade da Integração Internacional da Lusofonia Afro-Brasileira">UNILAB</abbr></a>
+                    <a href="http://www.unilab.edu.br/" target="_blank"><abbr title="Universidade da Integração Internacional da Lusofonia Afro-Brasileira"></abbr></a>
                 </div>
             </footer>
             <!-- End of Footer -->
