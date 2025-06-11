@@ -6,12 +6,12 @@
         @include('partials.validation-alert')
         @include('partials.validation-error')
         <div class="card-header">
-            Status
+            Type
         </div>
         <div class="card-body">
-            <form class="status" method="post" action="{{ route('statuses.store') }}" >
+            <form class="type" method="post" action="{{ route('types.store') }}" >
                 @csrf
-                @include('statuses._form')
+                @include('types._form')
             </form>
         </div>
     </div>
