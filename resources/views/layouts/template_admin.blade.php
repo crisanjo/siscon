@@ -64,6 +64,8 @@
                         <a class="collapse-item" href="{{ route('areas.index')}}">Areas</a>
                         <a class="collapse-item" href="{{ route('statuses.index')}}">Status</a>
                         <a class="collapse-item" href="{{ route('feedbacks.index')}}">Feedback</a>
+                        <a class="collapse-item" href="{{ route('providers.index')}}">Provedores</a>
+                        
                     </div>
                 </div>
             </li>
