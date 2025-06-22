@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    
+
     public function index()
     {
         $users = User::all();
@@ -28,7 +28,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required|max:255',
+            'name' => 'required|max:255',
+            'phone' => 'required|max:20',
+            'whatsapp' => 'required|max:20',
+            'profile_id' => 'required|integer',
           ]);
         User::create($request->all());
            
@@ -39,7 +42,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(user $user)
+    public function show(User $user)
     {
         //
     }
@@ -47,7 +50,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(user $user)
+    public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
@@ -55,22 +58,25 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, user $user)
+    public function update(Request $request, User $user)
     {
         $request->validate([
-            'description' => 'required|max:255',
+            'name' => 'required|max:255',
+            'phone' => 'required|max:20',
+            'whatsapp' => 'required|max:20',
+            'profile_id' => 'required|integer',
           ]);
         $user->update($request->all());
           
         return redirect()->route('users.index')
                         ->with('success', 'Usuário alterado com sucesso');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(user $user)
+    public function destroy(User $user)
     {
         $user->delete();
            

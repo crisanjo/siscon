@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('whatsapp');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            //$table->string('email')->unique();
+            //$table->timestamp('email_verified_at')->nullable();
+            //$table->string('password');
+            //$table->rememberToken();
             $table->timestamps();
             $table->foreignId('profile_id')->nullable()->index();
         });

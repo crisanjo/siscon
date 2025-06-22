@@ -22,6 +22,8 @@ Route::resource('providers', ProviderController::class);
 Route::resource('types', TypeController::class);
 Route::resource('users', UserController::class);
 Route::resource('contracts', ContractController::class);
+Route::resource('contracts', ProtocolController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
