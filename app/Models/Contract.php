@@ -9,11 +9,10 @@ class Contract extends Model
   use HasFactory;
 
     protected $fillable = [
-        'Valor',
+        'value',
         'start_date',
-        'end date',
-        'digital_signatura',
+        'end_date',
+        'digital_signature',
         'providers_id',
-        'readjustment_month',
     ];//  //
 }

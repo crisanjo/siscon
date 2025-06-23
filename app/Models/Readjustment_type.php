@@ -4,7 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class readjustment_type extends Model
+class Readjustment_type extends Model
 {
-    //
+    use HasFactory;
+
+    protected $fillable = [
+        'readjustment',
+        'contract_id',
+    ];
 }

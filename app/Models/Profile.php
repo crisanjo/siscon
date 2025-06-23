@@ -10,5 +10,6 @@ class Profile extends Model
 
     protected $fillable = [
         'description',
-    ];//
+        'user_id',
+    ];
 }

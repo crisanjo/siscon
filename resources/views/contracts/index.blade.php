@@ -23,19 +23,18 @@
               <th>Data de início</th>
               <th>Data de término</th>
               <th>Assinatura digital</th>
-              <th>ID do provedor</th>
-              <th>Mês de reajuste</th>
+              <th>Provedor</th>
               <th width="150px">Ações</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($contracts as $contract)
               <tr>
+                <td>{{ $contract->id }}</td>
                 <td>{{ $contract->value }}</td>
-                <td>{{ $contract->stard_date }}</td>
-                <td>{{ $contract->end_date }}</td>
+                <td>{{ \carbon\carbon::parse($contract->start_date)->format('d/m/y') }}</td>
+                <td>{{ \carbon\carbon::parse($contract->end_date)->format('d/m/y') }}</td>
                 <td>{{ $contract->digital_signature}}</td>
-                <td>{{ $contract->readjustment_month}}</td>
                 <td>{{ $contract->providers_id}}</td>
                 <td>
                   <a class="btn btn-warning btn-sm mr-1" href="{{ route('contracts.edit',$contract->id) }}" name="Editar">Editar</a>

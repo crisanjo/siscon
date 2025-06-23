@@ -35,8 +35,8 @@ class ContractController extends Controller
             'end_date' => 'required|date|after_or_equal:start_date',
             'digital_signature' => 'required|string|max:255' ,
             'providers_id' => 'required|integer' ,
-            'readjustment_monthe' => 'required|string|max:20' ,
           ]);
+        var_dump($request->all());
         Contract::create($request->all());
            
         return redirect()->route('contracts.index')
@@ -70,7 +70,7 @@ class ContractController extends Controller
             'end_date' => 'required|date|afetr_or_equal:start_date',
             'digital_signature' => 'required|string|max:255' ,
             'providers_id' => 'required|integer' ,
-            'readjustment monthe' => 'required|string|max:20' ,
+            
           ]);
         $contract->update($request->all());
           

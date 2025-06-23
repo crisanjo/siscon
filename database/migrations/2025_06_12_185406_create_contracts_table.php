@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->double('value, 15, 8 ');
+            $table->double('value', 15, 2);
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('digital_signatura');
-            $table->string('readjustment monthe');
+            $table->string('digital_signature');
             $table->integer('providers_id');
             $table->timestamps();
         });
