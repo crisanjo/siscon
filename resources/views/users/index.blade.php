@@ -20,6 +20,9 @@
             <tr>
               <th width="50px">Id</th>
               <th>Nome</th>
+              <th>Telefone</th>
+              <th>Whatsapp</th>
+              <th>Perfil</th>
               <th width="150px">Ações</th>
             </tr>
           </thead>
@@ -27,7 +30,10 @@
             @foreach ($users as $user)
               <tr>
                 <td>{{ $user->id }}</td>
-                <td>{{ $user->description }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->phone }}</td>
+                <td>{{ $user->whatsapp }}</td>
+                <td>{{ $user->profile_id }}</td>
                 <td>
                   <a class="btn btn-warning btn-sm mr-1" href="{{ route('users.edit',$user->id) }}" name="Editar">Editar</a>
                   <form action="{{ route('users.destroy', $user->id) }}" method="POST">
