@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Readjustment_type extends Model
+class Readjustment extends Model
 {
     use HasFactory;
 

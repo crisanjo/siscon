@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('readjustment_types', function (Blueprint $table) {
+        Schema::create('readjustments', function (Blueprint $table) {
             $table->id();
             $table->integer('readjustment');
             $table->foreignId('contract_id')->nullable()->index();
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('readjustment_types');
+        Schema::dropIfExists('readjustments');
     }
 };

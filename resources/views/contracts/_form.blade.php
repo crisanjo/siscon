@@ -16,8 +16,12 @@
             <input type="text" id="digital_signature" name="digital_signature" value="{{ $contract->digital_signature}}" required class="form-control"> 
     </div>     
     <div class="col-md-6">
-            <label for="name">ID do provedor:</label>
-            <input type="text" id="providers_id" name="providers_id" value="{{ $contract->providers_id}}" required class="form-control"> 
+            <label for="name">Provedor:</label>
+            <select name="providers_id" required class="form-control">
+                @foreach ($providers as $provider)
+                        <option {{ $provider->id == $contract->providers_id ? 'selected' : '' }}  value="{{ $provider->id}}" >{{ $provider->name}}</option>
+                @endforeach
+            </select>
     </div>     
   
 </div> 
