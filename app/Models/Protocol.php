@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-class protocol extends Model
+class Protocol extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'description',
         'solution',
-        'opening',
+        'opening_date',
         'value',
         'paid',
         'user_id',

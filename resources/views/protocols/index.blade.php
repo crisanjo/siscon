@@ -21,7 +21,7 @@
               <th width="50px">Id</th>
               <th>Descrição</th>
               <th>Solução</th>
-              <th>Data de Abertura</th>
+              <th>Abertura</th>
               <th>Valor</th>
               <th>Pago</th>
               <th>Usuário</th>
@@ -33,13 +33,14 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($protools as $protocol)
+            @foreach ($protocols as $protocol)
               <tr>
                 <td>{{ $protocol->id }}</td>
-                <td>{{ $protocol->descriptio }}</td>
+                <td>{{ $protocol->description }}</td>
                 <td>{{ $protocol->solution }}</td>
                 <td>{{ $protocol->opening_date }}</td>
                 <td>{{ $protocol->paid }}</td>
+                <td>{{ $protocol->value }}</td>
                 <td>{{ $protocol->user_id }}</td>
                 <td>{{ $protocol->area_id }}</td>
                 <td>{{ $protocol->status_id }}</td>

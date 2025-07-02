@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('protocols', function (Blueprint $table) {
             $table->id();
-            $table->string('descriptio');
+            $table->string('description');
             $table->string('solution');
             $table->date('opening_date');
             $table->double('value');

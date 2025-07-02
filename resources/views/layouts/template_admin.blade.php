@@ -68,6 +68,7 @@
                         <a class="collapse-item" href="{{ route('types.index')}}">Tipos</a>
                         <a class="collapse-item" href="{{ route('contracts.index')}}">Contratos</a>
                         <a class="collapse-item" href="{{ route('users.index')}}">Usuários</a>
+                        <a class="collapse-item" href="{{ route('protocols.index')}}">Protocolos</a>
                     </div>
                 </div>
             </li>

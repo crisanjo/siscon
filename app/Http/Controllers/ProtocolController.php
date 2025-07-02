@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\protocol;
+use App\Models\Protocol;
 use Illuminate\Http\Request;
 
 class ProtocolController extends Controller
@@ -30,18 +30,18 @@ class ProtocolController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'descriptio' => 'required|max:255',
+            'description' => 'required|max:255',
             'solution' => 'required|max:200',
-            'opening' => 'required|date',
-            'value' => 'required|double',
-            'paid' => 'required|boolean',
-            'user_id' => 'required|integer',
-            'area_id' => 'required|integer',
-            'status_id' => 'required|integer',
-            'type_id' => 'required|integer',
+            'opening_date' => 'required',
+            'value' => 'required',
+            'paid' => 'required',
+            'user_id' => 'required',
+            'area_id' => 'required',
+            'status_id' => 'required',
+            'type_id' => 'required',
             'priority' => 'required|max:200',
           ]);
-        User::create($request->all());
+        Protocol::create($request->all());
            
         return redirect()->route('protocols.index')
                          ->with('success', 'Protocolo criado com sucesso');
@@ -69,12 +69,12 @@ class ProtocolController extends Controller
     public function update(Request $request, Protocol $protocol)
     {
         $request->validate([
-            'descriptio' => 'required|max:255',
+            'description' => 'required|max:255',
             'solution' => 'required|max:200',
-            'opening' => 'required|date',
-            'value' => 'required|double',
-            'paid' => 'required|boolean',
-            'user_id' => 'required|integer',
+            'opening_date' => 'required|date',
+            'value' => 'required',
+            'paid' => 'required',
+            'user_id' => 'required|',
             'area_id' => 'required|integer',
             'status_id' => 'required|integer',
             'type_id' => 'required|integer',

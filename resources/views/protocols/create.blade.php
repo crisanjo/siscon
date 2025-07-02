@@ -6,7 +6,7 @@
         @include('partials.validation-alert')
         @include('partials.validation-error')
         <div class="card-header">
-            User
+            Protocolos
         </div>
         <div class="card-body">
             <form class="protocol" method="post" action="{{ route('protocols.store') }}" >
