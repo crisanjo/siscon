@@ -35,7 +35,7 @@
                 <td>{{ \carbon\carbon::parse($contract->start_date)->format('d/m/y') }}</td>
                 <td>{{ \carbon\carbon::parse($contract->end_date)->format('d/m/y') }}</td>
                 <td>{{ $contract->digital_signature}}</td>
-                <td>{{ $contract->providers_id}}</td>
+                <td>{{ $contract->provider?->name }}</td>
                 <td>
                   <a class="btn btn-warning btn-sm mr-1" href="{{ route('contracts.edit',$contract->id) }}" name="Editar">Editar</a>
                   <form action="{{ route('contracts.destroy', $contract->id) }}" method="POST">

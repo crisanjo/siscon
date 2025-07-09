@@ -13,7 +13,7 @@ class ContractController extends Controller
      */
     public function index()
     {
-        $contracts = Contract::all();
+        $contracts = Contract::with('provider')->get();
         return view('contracts.index', compact('contracts'));
     }
 
