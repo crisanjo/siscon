@@ -19,8 +19,8 @@ return new class extends Migration
             $table->double('value');
             $table->boolean('paid');
             $table->integer('user_id');
-            $table->integer('area_id');
-            $table->integer('status_id');
+            $table->foreignId('area_id')->nullable()->index();
+            $table->foreignId('status_id')->nullable()->index();
             $table->integer('type_id');
             $table->string('priority');
             $table->timestamps();

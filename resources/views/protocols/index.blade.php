@@ -38,12 +38,12 @@
                 <td>{{ $protocol->id }}</td>
                 <td>{{ $protocol->description }}</td>
                 <td>{{ $protocol->solution }}</td>
-                <td>{{ $protocol->opening_date }}</td>
-                <td>{{ $protocol->paid }}</td>
+                <td>{{ \carbon\carbon::parse($protocol->opening_date)->format('d/m/y') }}</td>
                 <td>{{ $protocol->value }}</td>
+                <td>{{ $protocol->paid }}</td>
                 <td>{{ $protocol->user_id }}</td>
-                <td>{{ $protocol->area_id }}</td>
-                <td>{{ $protocol->status_id }}</td>
+                <td>{{ $protocol->area->description }}</td>
+                <td>{{ $protocol->status->description }}</td>
                 <td>{{ $protocol->type_id }}</td>
                 <td>{{ $protocol->priority }}</td>
                 <td>

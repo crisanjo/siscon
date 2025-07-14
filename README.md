@@ -27,7 +27,8 @@ docker exec -it siscon-docker.app /bin/bash<br/>
 <h6>Gerando a chave do sistema</h6>
 docker exec siscon-docker.app php artisan key:generate<br/>
 <h6>Execultar as migrações</h6>
-docker exec siscon-docker.app php artisan migrate <br/>
+docker exec a45c020a338e_siscon-docker.app  php artisan migrate:fresh <br/>
+
 
 <h6>Carregar os dados no banco</h6>
 docker exec siscon-docker.app php artisan db:seed<br/>

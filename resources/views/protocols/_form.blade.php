@@ -1,87 +1,77 @@
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="Descrição">Descrição: </label>
-        <div class="col-sm-12">
-        <textarea name="description" class="form-control id="description" rows="4" cols="50" required placeholder="Descrição" value="{{ $protocol->description }}"></textarea>
+<div class="container">
+    <form>
+        <!-- Descrição -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição:</label>
+            <textarea name="description" id="description" class="form-control" rows="4" required placeholder="Descrição">{{ $protocol->description }}</textarea>
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Solução</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="solution" name="solution" required  placeholder="Soluçao" value="{{ $protocol->solution }}">
+
+        <!-- Solução -->
+        <div class="mb-3">
+            <label for="solution" class="form-label">Solução:</label>
+            <input type="text" class="form-control" id="solution" name="solution" required placeholder="Solução" value="{{ $protocol->solution }}">
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Data de Abertura</label>
-        <div class="col-sm-12">
-            <input type="date" class="form-control" id="opening_date" name="opening_date" required  placeholder="data de Abertura" value="{{ $protocol->opening_date }}">
+
+        <!-- Data de Abertura -->
+        <div class="mb-3">
+            <label for="opening_date" class="form-label">Data de Abertura:</label>
+            <input type="date" class="form-control" id="opening_date" name="opening_date" required value="{{ $protocol->opening_date }}">
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">valor</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="value" name="value" required  placeholder="Valor" value="{{ $protocol->value }}">
+
+        <!-- Valor -->
+        <div class="mb-3">
+            <label for="value" class="form-label">Valor:</label>
+            <input type="text" class="form-control" id="value" name="value" required placeholder="Valor" value="{{ $protocol->value }}">
         </div>
-    </div>
-<div class="form-group row">
-    <div class="mb-12 row">
-    <label for="Pago" class="col-sm-6-form-label required">Pago:</label>
-        <select class="form-select" id="paid" name="paid" required value="{{ $protocol->paid }}">
-            <option value="" disabled selected>Selecione</option>
-            <option value="true">SIM</option>
-            <option value="false">NÃO</option>
-        </select>
-    </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Usuário</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="user_id" name="user_id" required  placeholder="Usuário" value="{{ $protocol->user_id }}">
+
+        <!-- Pago -->
+        <div class="mb-3">
+            <label for="paid" class="form-label">Pago:</label>
+            <select class="form-select" id="paid" name="paid" required>
+                <option value="" disabled {{ is_null($protocol->paid) ? 'selected' : '' }}>Selecione</option>
+                <option value="1" {{ $protocol->paid == 1 ? 'selected' : '' }}>SIM</option>
+                <option value="0" {{ $protocol->paid == 0 ? 'selected' : '' }}>NÃO</option>
+            </select>
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Área</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="area_id" name="area_id" required  placeholder="Área" value="{{ $protocol->area_id }}">
+
+        <!-- Usuário -->
+        <div class="mb-3">
+            <label for="user_id" class="form-label">Usuário:</label>
+            <input type="text" class="form-control" id="user_id" name="user_id" required placeholder="Usuário" value="{{ $protocol->user_id }}">
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Status</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="status_id" name="status_id" required  placeholder="Status" value="{{ $protocol->status_id }}">
+
+        <!-- Área -->
+        <div class="mb-3">
+            <label for="area_id" class="form-label">Área:</label>
+            <select name="area_id" id="area_id" class="form-control" required>
+                @foreach ($areas as $area)
+                    <option value="{{ $area->id }}" {{ $area->id == $protocol->area_id ? 'selected' : '' }}>{{ $area->description }}</option>
+                @endforeach
+            </select>
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Tipo</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="type_id" name="type_id" required  placeholder="Tipo" value="{{ $protocol->type_id }}">
+
+        <!-- Status -->
+        <label for="status_id" class="form-label">Status:</label>
+            <select name="status_id" id="status_id" class="form-control" required>
+                @foreach ($statuses as $status)
+                    <option value="{{ $status->id }}" {{ $status->id == $protocol->status_id ? 'selected' : '' }}>{{ $status->description }}</option>
+                @endforeach
+            </select>
+        <!-- Tipo -->
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Tipo:</label>
+            <input type="text" class="form-control" id="type_id" name="type_id" required placeholder="Tipo" value="{{ $protocol->type_id }}">
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="mb-12 row">
-        <label for="name" class="col-sm-6 col-form-label required">Prioridade</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="priority" name="priority" required  placeholder="Prioridade" value="{{ $protocol->priority }}">
+
+        <!-- Prioridade -->
+        <div class="mb-4">
+            <label for="priority" class="form-label">Prioridade:</label>
+            <input type="text" class="form-control" id="priority" name="priority" required placeholder="Prioridade" value="{{ $protocol->priority }}">
         </div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="d-grid gap-2 col-2 mx-auto">
-        <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-    </div>
+
+        <!-- Botão de envio -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
 </div>

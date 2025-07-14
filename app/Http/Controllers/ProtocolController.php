@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Protocol;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 class ProtocolController extends Controller
@@ -12,7 +13,7 @@ class ProtocolController extends Controller
      */
    public function index()
     {
-        $protocols = Protocol::all();
+        $protocols = Protocol::with('area')->get();
         return view('protocols.index', compact('protocols'));
     }
 
@@ -21,7 +22,12 @@ class ProtocolController extends Controller
      */
     public function create()
     {
-        return view('protocols.create', ['protocol' => new Protocol]);
+       $areas = Area::all();
+        return view('protocols.create', ['protocol' => new Protocol, 'areas' => $areas]);
+    }
+    {
+       $statuses = Status::all();
+        return view('protocols.create', ['protocol' => new Protocol, 'statuses' => $statuses]);
     }
 
     /**
@@ -60,7 +66,13 @@ class ProtocolController extends Controller
      */
     public function edit(Protocol $protocol)
     {
-        return view('protocols.edit', compact('protocol'));
+        $areas = Area::all();
+        return view('protocols.edit', ['protocol' => $protocol, 'areas' => $areas]);
+    }
+    {
+        $statuses = Status::all();
+        return view('protocols.edit', ['protocol' => $protocol, 'statuses' => $statuses]);
+        
     }
 
     /**
@@ -74,7 +86,7 @@ class ProtocolController extends Controller
             'opening_date' => 'required|date',
             'value' => 'required',
             'paid' => 'required',
-            'user_id' => 'required|',
+            'user_id' => 'required|integer',
             'area_id' => 'required|integer',
             'status_id' => 'required|integer',
             'type_id' => 'required|integer',
