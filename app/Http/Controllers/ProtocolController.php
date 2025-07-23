@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Protocol;
 use App\Models\Area;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class ProtocolController extends Controller
@@ -13,7 +14,7 @@ class ProtocolController extends Controller
      */
    public function index()
     {
-        $protocols = Protocol::with('area')->get();
+        $protocols = Protocol::with('area', 'status')->get();
         return view('protocols.index', compact('protocols'));
     }
 
@@ -22,12 +23,9 @@ class ProtocolController extends Controller
      */
     public function create()
     {
-       $areas = Area::all();
-        return view('protocols.create', ['protocol' => new Protocol, 'areas' => $areas]);
-    }
-    {
-       $statuses = Status::all();
-        return view('protocols.create', ['protocol' => new Protocol, 'statuses' => $statuses]);
+        $areas = Area::all();
+        $statuses = Status::all();
+        return view('protocols.create', ['protocol' => new Protocol, 'statuses' => $statuses, 'areas' => $areas]);
     }
 
     /**
@@ -67,11 +65,8 @@ class ProtocolController extends Controller
     public function edit(Protocol $protocol)
     {
         $areas = Area::all();
-        return view('protocols.edit', ['protocol' => $protocol, 'areas' => $areas]);
-    }
-    {
         $statuses = Status::all();
-        return view('protocols.edit', ['protocol' => $protocol, 'statuses' => $statuses]);
+        return view('protocols.edit', ['protocol' => $protocol, 'statuses' => $statuses, 'areas' => $areas]);
         
     }
 

@@ -21,7 +21,17 @@ class Protocol extends Model
         'type_id',
         'priority',
         
-    ];//
+    ];
+    public function is_paid():String{
+        if($this->paid==0){
+            return 'NÃO';
+        }else{
+            return 'SIM';
+        }
+    }
+
+        
+    //
     /**
      * Get the area that owns the comment.
      */

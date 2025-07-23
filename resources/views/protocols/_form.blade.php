@@ -49,7 +49,6 @@
                 @endforeach
             </select>
         </div>
-
         <!-- Status -->
         <label for="status_id" class="form-label">Status:</label>
             <select name="status_id" id="status_id" class="form-control" required>

@@ -40,7 +40,7 @@
                 <td>{{ $protocol->solution }}</td>
                 <td>{{ \carbon\carbon::parse($protocol->opening_date)->format('d/m/y') }}</td>
                 <td>{{ $protocol->value }}</td>
-                <td>{{ $protocol->paid }}</td>
+                <td>{{ $protocol->is_paid() }}</td>
                 <td>{{ $protocol->user_id }}</td>
                 <td>{{ $protocol->area->description }}</td>
                 <td>{{ $protocol->status->description }}</td>
