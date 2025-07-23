@@ -6,23 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-
-class Readjustment extends Model
+class Visit extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'readjustment',
-        'contract_id',
-    ];
+        'start_date',
+        'end_date',
+        'description',
+        'protocol_id',
+    ];//  //
 
 
-     /**
+    /**
      * Get the provider that owns the comment.
      */
-    public function contract(): BelongsTo
+    public function protocol(): BelongsTo
     {
-        return $this->belongsTo(Contract::class, 'contract_id');
+        return $this->belongsTo(Protocol::class, 'protocol_id');
     }
 }
+
 

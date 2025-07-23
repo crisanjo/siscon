@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\readjustment;
+use App\Models\Readjustment;
+use App\Models\Contract;
 use Illuminate\Http\Request;
 
-class ReadjustmentController extends Controllers
+class ReadjustmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-         $readjustments = Readjustment::all();
+         $readjustments = Readjustment::with('contract')->get();
         return view('readjustments.index', compact('readjustments'));
     }
 
@@ -21,7 +22,8 @@ class ReadjustmentController extends Controllers
      */
     public function create()
     {
-        return view('readjustments.create', ['readjustment' => new Readjustment]);
+        $contracts = Contract::all();
+        return view('readjustments.create', ['readjustment' => new Readjustment, 'contracts' => $contracts]);
     }
 
     /**
@@ -51,8 +53,9 @@ class ReadjustmentController extends Controllers
      * Show the form for editing the specified resource.
      */
     public function edit(readjustment $readjustment)
-    {
-        return view('readjustments.edit', compact('readjustment'));
+    {  
+        $contracts = Contract::all();
+        return view('readjustments.edit', ['readjustment' => $readjustment, 'contracts' => $contrcts]);
     }
 
     /**

@@ -1,38 +1,42 @@
 @extends('layouts.template_admin')
-@section('title', 'Gerenciar Reajustes')
+@section('title', 'Gerenciar Visitas')
 @section('content')
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success float-right btn-sm" href="{{ route('readjustments.create') }}" name="Novo"> Novo</a>
+        <a class="btn btn-success float-right btn-sm" href="{{ route('visits.create') }}" name="Novo"> Novo</a>
         </div>
     </div>
   </div>
   <hr>
-  <div class="row">
-    <div class="card-body">
+      <div class="row">
+      <div class="card-body">
       <div class="table-responsive">
         @include('partials.validation-alert')
         <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th width="50px">Id</th>
-              <th>Reajuste</th>
-              <th>Contrato</th>
+              <th>Data de início</th>
+              <th>Data de término</th>
+              <th>Descrição</th>
+              <th>Protocolo</th>
               <th width="150px">Ações</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($readjustments as $readjustment)
+            @foreach ($visits as $visit)
               <tr>
-                <td>{{ $readjustment->id }}</td>
-                <td>{{ $readjustment->readjustment }}</td>
-                <td>{{ $readjustment->contract?->name }}</td>
+                <td>{{ $visit->id }}</td>
+                <td>{{ \carbon\carbon::parse($visit->start_date)->format('d/m/y') }}</td>
+                <td>{{ \carbon\carbon::parse($visit->end_date)->format('d/m/y') }}</td>
+                <td>{{ $visit->description }}</td>
+                <td>{{ $visit->protocol?->name }}</td>
                 <td>
-                  <a class="btn btn-warning btn-sm mr-1" href="{{ route('readjustments.edit',$readjustment->id) }}" name="Editar">Editar</a>
-                  <form action="{{ route('readjustments.destroy', $readjustment->id) }}" method="POST">
+                  <a class="btn btn-warning btn-sm mr-1" href="{{ route('visits.edit',$visit->id) }}" name="Editar">Editar</a>
+                  <form action="{{ route('visits.destroy', $visit->id) }}" method="POST">
                     
                     @csrf
                     @method('DELETE')

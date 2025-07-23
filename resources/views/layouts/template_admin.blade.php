@@ -69,6 +69,8 @@
                         <a class="collapse-item" href="{{ route('contracts.index')}}">Contratos</a>
                         <a class="collapse-item" href="{{ route('users.index')}}">Usuários</a>
                         <a class="collapse-item" href="{{ route('protocols.index')}}">Protocolos</a>
+                        <a class="collapse-item" href="{{ route('readjustments.index')}}">Reajustes</a>
+                        <a class="collapse-item" href="{{ route('visits.index')}}">Visitas</a>
                     </div>
                 </div>
             </li>
